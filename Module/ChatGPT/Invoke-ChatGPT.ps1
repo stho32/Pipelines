@@ -3,7 +3,7 @@
         [string]$Prompt,
         [string]$SystemPrompt,
         [string]$Model = "gpt-4o",
-        [int]$MaxTokens = 500,
+        [int]$MaxTokens = 4000,
         [float]$Temperature = 0.7
     )
 
