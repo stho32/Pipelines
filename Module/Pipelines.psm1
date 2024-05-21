@@ -1,4 +1,15 @@
-# Root.psm1
+# Get the directory where the current module's psm1 file resides
+$moduleDirectory = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+
+# Construct the full path to NAudio.dll, assuming it's in the same directory
+$naudioDllPath = Join-Path $moduleDirectory "NAudio.dll"
+
+# Check if the DLL exists before trying to add the type
+if (Test-Path $naudioDllPath) {
+    Add-Type -Path $naudioDllPath
+} else {
+    Write-Warning "NAudio.dll not found in the module directory. NAudio features will not be available."
+}
 
 # Get the directory of the current module
 $moduleDirectory = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
