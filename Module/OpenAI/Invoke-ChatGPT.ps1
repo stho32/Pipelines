@@ -1,6 +1,8 @@
 ﻿function Invoke-ChatGPT {
     param (
+        [Parameter(ValueFromPipeline=$true)]
         [string]$Prompt,
+
         [string]$SystemPrompt,
         [string]$Model = "gpt-4o",
         [int]$MaxTokens = 4000,
